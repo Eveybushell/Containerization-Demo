@@ -22,6 +22,12 @@ app.get('/healthz', (req, res) => {
     });
 });
 
+// Simulate a fatal application crash
+app.get('/crash', (req, res) => {
+    console.error("Fatal error simulated. Crashing process...");
+    process.exit(1); 
+});
+
 // Runtime Metadata Endpoint
 app.get('/info', (req, res) => {
     res.status(200).json({
